@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Sparx Reader Solver",
+  "name": "sparx.solutions",
   "version": "1.0.0",
   "icons": {
     "16": "icons/sparx_16.png",
