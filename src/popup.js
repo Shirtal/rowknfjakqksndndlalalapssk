@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiKey = document.getElementById('apiKeyInput').value.trim();
 
     if (!apiKey) {
-      alert('Please enter an API key!');
+      alert('sparx.solutions has not detected a Gemini API key.');
       return;
     }
 
