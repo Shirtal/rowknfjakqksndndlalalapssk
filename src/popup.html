@@ -3,18 +3,111 @@
 <head>
   <title>Gemini API Key</title>
   <style>
-    body { width: 200px; padding: 10px; font-family: sans-serif; }
+    :root {
+      --bg-color: #1a1a1a;
+      --text-color: #ffffff;
+      --input-bg: #2d2d2d;
+      --input-border: #555;
+      --button-bg: #4a90e2;
+      --button-hover: #357abd;
+      --button-text: #ffffff;
+    }
+
+    body { 
+      width: 200px; 
+      padding: 10px; 
+      font-family: sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+    }
+
+    h3 {
+      color: var(--text-color);
+      margin-top: 0;
+    }
+
     input[type="text"] {
       width: 100%;
       box-sizing: border-box;
       padding: 6px;
       margin-bottom: 10px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
     }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--button-bg);
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    }
+
+    input[type="text"]::placeholder {
+      color: #888;
+    }
+
     button {
       width: 100%;
       padding: 6px;
-      margin-bottom: 8px; /* adds space below each button */
+      margin-bottom: 8px;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
     }
+
+    button:hover {
+      background-color: var(--button-hover);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    /* Alternative color schemes - uncomment one to use */
+    
+    /* Green theme */
+    /*
+    :root {
+      --bg-color: #0d1b2a;
+      --text-color: #ffffff;
+      --input-bg: #1b263b;
+      --input-border: #415a77;
+      --button-bg: #2d6a4f;
+      --button-hover: #1b4332;
+      --button-text: #ffffff;
+    }
+    */
+
+    /* Purple theme */
+    /*
+    :root {
+      --bg-color: #2d1b69;
+      --text-color: #ffffff;
+      --input-bg: #3c2e7c;
+      --input-border: #6c5ce7;
+      --button-bg: #6c5ce7;
+      --button-hover: #5b4bd3;
+      --button-text: #ffffff;
+    }
+    */
+
+    /* Light theme */
+    /*
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --input-bg: #f8f9fa;
+      --input-border: #dee2e6;
+      --button-bg: #007bff;
+      --button-hover: #0056b3;
+      --button-text: #ffffff;
+    }
+    */
   </style>
 </head>
 <body>
@@ -27,6 +120,4 @@
   <button id="saveKeyBtn">save API key</button>
   <button id="testKeyBtn">test key validation</button>
 
-  <script src="../dist/popup.bundle.js" type="module"></script>
-</body>
-</html>
+  <script src="../dist/popup
