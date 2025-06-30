@@ -1,30 +1,122 @@
-{
-  "manifest_version": 3,
-  "name": "sparx.solutions",
-  "version": "8.1.2",
-  "icons": {
-    "16": "icons/sparx_16.png",
-    "32": "icons/sparx_32.png",
-    "48": "icons/sparx_48.png",
-    "128": "icons/sparx_128.png"
-  },
-
-  "background": {
-    "service_worker": "dist/background.bundle.js",
-    "type": "module"
-  },
-
-  "action": {
-    "default_popup": "src/popup.html"
-  },
-
-  "content_scripts": [
-    {
-      "matches": ["https://reader.sparx-learning.com/*"],
-      "js": ["dist/content.bundle.js"],
-      "run_at": "document_end"
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gemini API Key</title>
+  <style>
+    body { 
+      width: 200px; 
+      padding: 10px; 
+      font-family: sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      margin: 0;
     }
-  ],
+    
+    h3 {
+      color: white;
+      margin-top: 0;
+      font-style: italic;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 6px;
+      margin-bottom: 10px;
+      background-color: #2d2d2d;
+      border: 1px solid #444;
+      color: white;
+    }
+    
+    input[type="text"]::placeholder {
+      color: #aaa;
+    }
+    
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #7c3aed;
+    }
+    
+    @keyframes gradientShift {
+      0% { background: linear-gradient(0deg, #6441a5, #2a0845); }
+      2.5% { background: linear-gradient(9deg, #6441a5, #2a0845); }
+      5% { background: linear-gradient(18deg, #6441a5, #2a0845); }
+      7.5% { background: linear-gradient(27deg, #6441a5, #2a0845); }
+      10% { background: linear-gradient(36deg, #6441a5, #2a0845); }
+      12.5% { background: linear-gradient(45deg, #6441a5, #2a0845); }
+      15% { background: linear-gradient(54deg, #6441a5, #2a0845); }
+      17.5% { background: linear-gradient(63deg, #6441a5, #2a0845); }
+      20% { background: linear-gradient(72deg, #6441a5, #2a0845); }
+      22.5% { background: linear-gradient(81deg, #6441a5, #2a0845); }
+      25% { background: linear-gradient(90deg, #6441a5, #2a0845); }
+      27.5% { background: linear-gradient(99deg, #6441a5, #2a0845); }
+      30% { background: linear-gradient(108deg, #6441a5, #2a0845); }
+      32.5% { background: linear-gradient(117deg, #6441a5, #2a0845); }
+      35% { background: linear-gradient(126deg, #6441a5, #2a0845); }
+      37.5% { background: linear-gradient(135deg, #6441a5, #2a0845); }
+      40% { background: linear-gradient(144deg, #6441a5, #2a0845); }
+      42.5% { background: linear-gradient(153deg, #6441a5, #2a0845); }
+      45% { background: linear-gradient(162deg, #6441a5, #2a0845); }
+      47.5% { background: linear-gradient(171deg, #6441a5, #2a0845); }
+      50% { background: linear-gradient(180deg, #6441a5, #2a0845); }
+      52.5% { background: linear-gradient(189deg, #6441a5, #2a0845); }
+      55% { background: linear-gradient(198deg, #6441a5, #2a0845); }
+      57.5% { background: linear-gradient(207deg, #6441a5, #2a0845); }
+      60% { background: linear-gradient(216deg, #6441a5, #2a0845); }
+      62.5% { background: linear-gradient(225deg, #6441a5, #2a0845); }
+      65% { background: linear-gradient(234deg, #6441a5, #2a0845); }
+      67.5% { background: linear-gradient(243deg, #6441a5, #2a0845); }
+      70% { background: linear-gradient(252deg, #6441a5, #2a0845); }
+      72.5% { background: linear-gradient(261deg, #6441a5, #2a0845); }
+      75% { background: linear-gradient(270deg, #6441a5, #2a0845); }
+      77.5% { background: linear-gradient(279deg, #6441a5, #2a0845); }
+      80% { background: linear-gradient(288deg, #6441a5, #2a0845); }
+      82.5% { background: linear-gradient(297deg, #6441a5, #2a0845); }
+      85% { background: linear-gradient(306deg, #6441a5, #2a0845); }
+      87.5% { background: linear-gradient(315deg, #6441a5, #2a0845); }
+      90% { background: linear-gradient(324deg, #6441a5, #2a0845); }
+      92.5% { background: linear-gradient(333deg, #6441a5, #2a0845); }
+      95% { background: linear-gradient(342deg, #6441a5, #2a0845); }
+      97.5% { background: linear-gradient(351deg, #6441a5, #2a0845); }
+      100% { background: linear-gradient(360deg, #6441a5, #2a0845); }
+    }
+    
+    button {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 8px;
+      background: linear-gradient(0deg, #6441a5, #2a0845);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      animation: gradientShift 0.75s linear infinite;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    
+    button:active {
+      transform: translateY(0px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <h3>sparx.solutions:</h3>
 
-  "permissions": ["storage", "activeTab", "scripting"]
-}
+  <!-- Text input -->
+  <input type="text" id="apiKeyInput" placeholder="Require a Gemini API key" />
+
+  <!-- Button -->
+  <button id="saveKeyBtn">Save API Key</button>
+  <button id="testKeyBtn">Validate</button>
+
+  <script src="../dist/popup.bundle.js" type="module"></script>
+</body>
+</html>
